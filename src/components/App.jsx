@@ -1,7 +1,6 @@
-import "./App.css";
-import ContactForm from "../contactform/ContactForm.jsx";
-import SearchBox from "../searchbox/SearchBox.jsx";
-import ContactList from "../contactlist/ContactList.jsx";
+import ContactForm from "./contactform/ContactForm.jsx";
+import SearchBox from "./searchbox/SearchBox.jsx";
+import ContactList from "./contactlist/ContactList.jsx";
 import { useState, useEffect } from "react";
 
 function App() {
