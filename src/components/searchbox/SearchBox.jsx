@@ -1,4 +1,4 @@
-import css from './SearchBox.module.css';
+import css from "./SearchBox.module.css";
 
 const SearchBox = ({ searchValue, onFilter }) => {
   return (
@@ -7,7 +7,7 @@ const SearchBox = ({ searchValue, onFilter }) => {
       <input
         type="text"
         value={searchValue}
-        onChange={e => onFilter(e.target.value)}
+        onChange={(e) => onFilter(e.target.value)}
       />
     </div>
   );

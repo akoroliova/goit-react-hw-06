@@ -1,19 +1,19 @@
-import css from './ContactForm.module.css';
-import { useId } from 'react';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
+import css from "./ContactForm.module.css";
+import { useId } from "react";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
+import { nanoid } from "nanoid";
 
 const YupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
 
   number: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
 });
 
 export default function ContactForm({ onAdd }) {
@@ -33,8 +33,8 @@ export default function ContactForm({ onAdd }) {
   return (
     <Formik
       initialValues={{
-        name: '',
-        number: '',
+        name: "",
+        number: "",
       }}
       onSubmit={handleSubmit}
       validationSchema={YupSchema}

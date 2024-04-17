@@ -1,6 +1,6 @@
-import css from './Contact.module.css';
-import { LuCat } from 'react-icons/lu';
-import { LuPhone } from 'react-icons/lu';
+import css from "./Contact.module.css";
+import { LuCat } from "react-icons/lu";
+import { LuPhone } from "react-icons/lu";
 
 const Contact = ({ contactId, name, number, onDelete }) => {
   return (
