@@ -1,10 +1,10 @@
-import { setFilter } from "../../redux/contactListReducer";
-import css from "./SearchBox.module.css";
+import { setFilter } from "../../redux/filtersSlice";
 import { useDispatch, useSelector } from "react-redux";
+import css from "./SearchBox.module.css";
 
 const SearchBox = () => {
   const searchBoxData = useSelector((state) => {
-    state.contactList.filters.name;
+    state.filters.name;
   });
   const dispatch = useDispatch();
 
