@@ -33,17 +33,12 @@ function App() {
     });
   };
 
-  const [searchBox, setSearchBox] = useState("");
-  const filteredItems = contacts.filter((item) =>
-    item.name.toLowerCase().includes(searchBox.toLowerCase().trim())
-  );
-
   return (
     <>
       <h1>Phonebook</h1>
       <ContactForm onAdd={addContact} />
-      <SearchBox searchValue={searchBox} onFilter={setSearchBox} />
-      <ContactList contacts={filteredItems} onDelete={deleteContact} />
+      <SearchBox />
+      <ContactList />
     </>
   );
 }

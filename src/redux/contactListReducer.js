@@ -12,18 +12,22 @@ const INITIAL_STATE = {
   },
 };
 
-export default function contactReducer(state = INITIAL_STATE, action) {
+export default function contactListReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case "contact/addContact": {
-      return state;
+    case "contactList/setFilter": {
+      return { ...state, filters: { name: action.payload } };
     }
-    case "contact/deleteContact": {
-      return state;
-    }
-    case "contact/filterContacts": {
-      return state;
+    case "contactList/deleteContact": {
+      return { ...state, allContactsData: action.payload };
     }
     default:
       return state;
   }
 }
+
+export const setFilter = (filterName) => {
+  return {
+    type: "contactList/setFilter",
+    payload: filterName,
+  };
+};
