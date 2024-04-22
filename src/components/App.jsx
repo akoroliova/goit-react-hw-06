@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <h1>Phonebook</h1>
-      <ContactForm onAdd={addContact} />
+      <ContactForm />
       <SearchBox />
       <ContactList />
     </>

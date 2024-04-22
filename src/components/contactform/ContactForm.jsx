@@ -3,6 +3,8 @@ import { useId } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
+import { addContact } from "../../redux/contactListReducer";
+import { useDispatch } from "react-redux";
 
 const YupSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,17 +18,20 @@ const YupSchema = Yup.object().shape({
     .required("Required"),
 });
 
-export default function ContactForm({ onAdd }) {
+export default function ContactForm() {
   const contactId = nanoid();
   const nameId = useId();
   const numberId = useId();
+  const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    onAdd({
+    const addContactAction = addContact({
       id: contactId,
       name: values.name,
       number: values.number,
     });
+
+    dispatch(addContactAction);
     actions.resetForm();
   };
 
@@ -42,13 +47,23 @@ export default function ContactForm({ onAdd }) {
       {({ errors, touched }) => (
         <Form className={css.contactForm}>
           <label htmlFor={nameId}>Name</label>
-          <Field type="text" name="name" className={css.inputField} />
+          <Field
+            id={nameId}
+            type="text"
+            name="name"
+            className={css.inputField}
+          />
           {errors.name && touched.name ? (
             <div className={css.errorText}>{errors.name}</div>
           ) : null}
 
           <label htmlFor={numberId}>Number</label>
-          <Field type="text" name="number" className={css.inputField} />
+          <Field
+            id={numberId}
+            type="text"
+            name="number"
+            className={css.inputField}
+          />
           {errors.number && touched.number ? (
             <div className={css.errorText}>{errors.number}</div>
           ) : null}

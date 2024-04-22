@@ -17,6 +17,14 @@ export default function contactListReducer(state = INITIAL_STATE, action) {
     case "contactList/setFilter": {
       return { ...state, filters: { name: action.payload } };
     }
+    case "contactList/addContact": {
+      return {
+        ...state,
+        contacts: {
+          items: [...state.contacts.items, action.payload],
+        },
+      };
+    }
     case "contactList/deleteContact": {
       return {
         ...state,
@@ -43,5 +51,12 @@ export const deleteContact = (contactId) => {
   return {
     type: "contactList/deleteContact",
     payload: contactId,
+  };
+};
+
+export const addContact = ({ id, name, number }) => {
+  return {
+    type: "contactList/addContact",
+    payload: { id, name, number },
   };
 };
