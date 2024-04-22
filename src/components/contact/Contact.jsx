@@ -1,8 +1,11 @@
 import css from "./Contact.module.css";
 import { LuCat } from "react-icons/lu";
 import { LuPhone } from "react-icons/lu";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactListReducer";
 
-const Contact = ({ contactId, name, number, onDelete }) => {
+const Contact = ({ contactId, name, number }) => {
+  const dispatch = useDispatch();
   return (
     <div className={css.contactCardContainer}>
       <ul className={css.contactDataListElement}>
@@ -22,7 +25,9 @@ const Contact = ({ contactId, name, number, onDelete }) => {
       <div className={css.contactDeleteButtonContainer}>
         <button
           className={css.buttonDelete}
-          onClick={() => onDelete(contactId)}
+          onClick={() => {
+            dispatch(deleteContact(contactId));
+          }}
         >
           Delete
         </button>

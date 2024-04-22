@@ -27,12 +27,6 @@ function App() {
     });
   };
 
-  const deleteContact = (contactId) => {
-    setContacts((prevContacts) => {
-      return prevContacts.filter((item) => item.id !== contactId);
-    });
-  };
-
   return (
     <>
       <h1>Phonebook</h1>
