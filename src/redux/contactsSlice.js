@@ -29,7 +29,12 @@ const contactsSlice = createSlice({
   },
 });
 
-//export const selectContacts;
+export const selectContacts = (state) => {
+  const filter = state.filters.name.toLowerCase();
 
+  return state.contacts.items.filter((contact) =>
+    contact.name.toLowerCase().includes(filter)
+  );
+};
 export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
